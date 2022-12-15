@@ -2,7 +2,7 @@ import React from 'react';
 
 const Categories = () => (
   <section className="categoriesSection">
-    <h1>Categories</h1>
+    <button type="button">Check Status</button>
   </section>
 );
 export default Categories;
