@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Book = () => (
+const Book = ({ book }) => (
   <section className="bookSection">
-    <h3>Dune</h3>
-    <p>Frank Herbert</p>
+    <h2>{book.title}</h2>
+    <p>{book.author}</p>
     <button type="button">
       Remove Book
     </button>
