@@ -1,5 +1,5 @@
-const ADD = 'ADD';
-const REMOVE = 'REMOVE';
+const ADD = 'bookstore/books/ADD';
+const REMOVE = 'bookstore/books/REMOVE';
 
 export const addBook = (book) => ({
   type: ADD,
@@ -17,7 +17,7 @@ const reducerBooks = (state = [], action) => {
       return [
         ...state, action.payload];
     case REMOVE:
-      return state.filter((item) => item !== action.payload);
+      return state.filter((item) => item !== action.id);
     default:
       return state;
   }
