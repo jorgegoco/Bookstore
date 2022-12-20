@@ -36,7 +36,6 @@
   },
   "ignorePatterns": [
     "dist/",
-    "build/",
-    "src/App.js"
+    "build/"
   ]
 }
