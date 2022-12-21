@@ -1,10 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
-const BooksList = () => (
-  <section className="booksListSection">
-    <h1>BooksList</h1>
-    <Book />
-  </section>
-);
+const BooksList = () => {
+  const books = useSelector((state) => state.books);
+  return (
+    <section className="booksListSection">
+      {books.map((book) => <Book key={book.id} book={book} />)}
+    </section>
+  );
+};
 export default BooksList;
