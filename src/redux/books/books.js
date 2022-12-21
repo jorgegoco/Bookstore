@@ -52,7 +52,7 @@ export const addBookAsync = createAsyncThunk(
   async (book) => addBook(book).then(() => book),
 );
 
-const deleteBook = async (id) => {
+const removeBook = async (id) => {
   const result = await fetch(`${URL}/${id}`, {
     method: 'DELETE',
     headers: {
@@ -67,7 +67,7 @@ const deleteBook = async (id) => {
 
 export const removeBookAsync = createAsyncThunk(
   REMOVE,
-  async (id) => deleteBook(id).then(() => id),
+  async (id) => removeBook(id).then(() => id),
 );
 
 const reducerBooks = (state = [], action) => {
