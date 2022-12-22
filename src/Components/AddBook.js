@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
-import { addBook } from '../redux/books/books';
+import { addBookAsync } from '../redux/books/books';
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const initialBook = {
-    id: '',
+    item_id: '',
     title: '',
     author: '',
+    category: '',
   };
   const [bookState, setBookState] = useState(initialBook);
 
@@ -23,8 +24,8 @@ const AddBook = () => {
 
   const Submit = (e) => {
     e.preventDefault();
-    const book = { ...bookState, id: uuid() };
-    dispatch(addBook(book));
+    const book = { ...bookState, item_id: uuid() };
+    dispatch(addBookAsync(book));
     setBookState(initialBook);
   };
 

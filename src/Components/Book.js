@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBookAsync, getAllBooksAsync } from '../redux/books/books';
 
-const Book = ({ book }) => {
+export default function Book({ book }) {
   const dispatch = useDispatch();
+  const { title, author, id } = book;
+
+  useEffect(() => {
+    dispatch(getAllBooksAsync());
+  }, [dispatch]);
 
   return (
     <section className="bookSection">
-      <h2>{book.title}</h2>
-      <p>{book.author}</p>
-      <button type="button" onClick={() => { dispatch(removeBook(book.id)); }}>
+      <h2>{title}</h2>
+      <p>{author}</p>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(removeBookAsync(id));
+          dispatch(getAllBooksAsync());
+        }}
+      >
+
         Remove Book
       </button>
     </section>
   );
-};
-export default Book;
+}
