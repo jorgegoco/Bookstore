@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
@@ -6,82 +8,44 @@ const LIST = 'bookstore/books/LIST';
 
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/QgtuyWt2y7sUT1m9eRR5/books';
 
-// const books = [
-//   {
-//     id: 1,
-//     title: 'The Shining',
-//     author: 'Stephen King',
-//   },
-//   {
-//     id: 2,
-//     title: 'Dune',
-//     author: 'Frank Herbert',
-//   },
-//   {
-//     id: 3,
-//     title: 'A Brief Story of Time',
-//     author: 'Stephen Hawking',
-//   },
-// ];
+const books = [];
 
-const getAllBooks = async () => {
-  const result = await fetch(URL);
-  return result.json();
-};
-
-export const getAllBooksAsync = createAsyncThunk(
-  LIST,
-  async () => getAllBooks().then((books) => Object.entries(books)
-    .map(([id, book]) => ({ item_id: id, ...book[0] }))),
-);
-
-const addBook = async (book) => {
-  const result = await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(book),
-  });
-
-  return result;
-};
-
-export const addBookAsync = createAsyncThunk(
-  ADD,
-  async (book) => addBook(book).then(() => book),
-);
-
-const removeBook = async (id) => {
-  const result = await fetch(`${URL}/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      item_id: id,
-    }),
-  });
-  return result;
-};
-
-export const removeBookAsync = createAsyncThunk(
-  REMOVE,
-  async (id) => removeBook(id).then(() => id),
-);
-
-const reducerBooks = (state = [], action) => {
+export default function reducerBooks(state = books, action) {
   switch (action.type) {
-    case `${LIST}/fulfilled`:
-      return [
-        ...state, action.payload];
-    case `${ADD}/fulfilled`:
+    case LIST:
+      return [...action.payload];
+    case ADD:
       return [...state, action.payload];
-    case `${REMOVE}/fulfilled`:
-      return state.filter((book) => book.item_id !== action.payload);
+    case REMOVE:
+      return state.filter((book) => book.id !== action.payload);
     default:
       return state;
   }
+}
+
+const getAllBooks = (books) => {
+  const arr = Object.entries(books).map(([id, item]) => ({ id, ...item[0] }));
+  return { type: LIST, payload: arr };
 };
 
-export default reducerBooks;
+const removeBook = (item_id) => ({ type: REMOVE, payload: item_id });
+
+const addBook = (book) => ({ type: ADD, payload: book });
+
+export const getAllBooksAsync = createAsyncThunk(LIST,
+  async (_, thunk) => {
+    const response = await axios.get(URL);
+    thunk.dispatch(getAllBooks(response.data));
+  });
+
+export const addBookAsync = createAsyncThunk(ADD,
+  async (payload, thunk) => {
+    await axios.post(URL, payload);
+    return thunk.dispatch(addBook(payload));
+  });
+
+export const removeBookAsync = createAsyncThunk(REMOVE,
+  async (item_id, thunk) => {
+    await axios.delete(`${URL}/${item_id}`);
+    return thunk.dispatch(removeBook(item_id));
+  });
