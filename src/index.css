@@ -5,4 +5,60 @@
   border: 0;
   font-style: normal;
   list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(244, 245, 249);
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 8rem;
+  width: 92%;
+  background-color: rgb(255, 255, 255);
+  margin: 7rem auto 0 auto;
+}
+
+.navBar h1 {
+  color: rgb(0, 145, 251);
+  font-size: 3rem;
+  margin-left: 6rem;
+}
+
+.navList {
+  display: flex;
+  flex-grow: 1;
+  justify-items: flex-start;
+  list-style: none;
+}
+
+.navList a {
+  padding: 0.6rem 1.5rem;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: rgb(137, 137, 137);
+  font-size: 1.4rem;
+}
+
+.userIcon {
+  color: rgb(0, 145, 251);
+}
+
+.userButton {
+  min-width: 4rem;
+  min-height: 4rem;
+  border: 1px solid rgb(232, 232, 232);
+  border-radius: 50px;
+  background: none;
+  margin-right: 6rem;
+  cursor: pointer;
 }
