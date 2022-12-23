@@ -21,6 +21,7 @@
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [📝 License](#license)
@@ -122,6 +123,11 @@ npm run deploy
 - Twitter: [@twitterhandle](https://twitter.com/JorgeGo78017548)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/jorge-gonz%C3%A1lez-b1a50714b/)
 
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Make functional the book categories section**
+- [ ] **Improve the rendering when doing CRUD operations**
 
 ## 🤝 Contributing <a name="contributing"></a>
 
