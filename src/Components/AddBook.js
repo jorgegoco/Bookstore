@@ -47,7 +47,7 @@ const AddBook = () => {
           placeholder="Add author..."
           onChange={OnChange}
         />
-        <button type="button" onClick={Submit}>Submit</button>
+        <button type="button" onClick={Submit}>ADD BOOK</button>
       </form>
     </section>
   );
