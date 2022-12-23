@@ -12,18 +12,42 @@ export default function Book({ book }) {
 
   return (
     <section className="bookSection">
-      <h2>{title}</h2>
-      <p>{author}</p>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(removeBookAsync(id));
-          dispatch(getAllBooksAsync());
-        }}
-      >
+      <div className="bookDiv">
+        <h2>{title}</h2>
+        <p>{author}</p>
+        <ul className="buttonList">
+          <li><button className="buttonOne" type="submit">Comments</button></li>
+          <li>
+            <button
+              className="buttonTwo"
+              type="button"
+              onClick={() => {
+                dispatch(removeBookAsync(id));
+                dispatch(getAllBooksAsync());
+              }}
+            >
 
-        Remove Book
-      </button>
+              Remove
+            </button>
+          </li>
+          <li><button className="buttonThree" type="submit">Edit</button></li>
+        </ul>
+      </div>
+      <div className="progress">
+        <div className="progressChart">
+          <div className="chart" />
+          <div className="status">
+            <p className="percent">64%</p>
+            <p className="completed">Completed</p>
+          </div>
+        </div>
+        <div className="divider" />
+        <div className="chapter">
+          <p className="currentChap">CURRENT CHAPTER</p>
+          <p className="chapNum">Chapter 17</p>
+          <button type="button">UPDATE PROGRESS</button>
+        </div>
+      </div>
     </section>
   );
 }

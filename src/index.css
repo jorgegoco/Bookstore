@@ -5,4 +5,237 @@
   border: 0;
   font-style: normal;
   list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 69%;
+}
+
+body {
+  background-color: rgb(240, 240, 245);
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 8rem;
+  width: 92%;
+  margin: 7rem auto 0 auto;
+  background-color: white;
+}
+
+.navBar h1 {
+  color: rgb(0, 146, 249);
+  font-size: 3rem;
+  margin: 6rem;
+}
+
+.navList {
+  display: flex;
+  flex-grow: 1;
+  justify-items: flex-start;
+}
+
+.navList a {
+  padding: 0.6rem 1.6rem;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: rgb(184, 181, 182);
+  font-size: 1.8rem;
+}
+
+.userIcon {
+  color: rgb(0, 145, 250);
+}
+
+.userButton {
+  min-width: 4rem;
+  min-height: 4rem;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 50px;
+  background: none;
+  margin-right: 6rem;
+  cursor: pointer;
+}
+
+.booksSection {
+  background-color: rgb(250, 250, 250);
+  width: 92%;
+  margin: 0 auto 7rem auto;
+  padding: 7rem;
+}
+
+hr {
+  color: rgb(230, 232, 230);
+  margin: 3rem auto;
+  height: 2px;
+}
+
+.categoriesSection {
+  background-color: rgb(250, 250, 250);
+  width: 92%;
+  margin: 0 auto;
+  padding: 5rem;
+}
+
+.catButton {
+  color: #fff;
+  font-size: 1.4rem;
+  background-color: rgb(0, 146, 249);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.booksListSection {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.bookSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border: 1px solid rgb(231, 227, 227);
+  padding: 3rem;
+}
+
+.bookDiv h2 {
+  font-size: 2rem;
+}
+
+.bookDiv p {
+  color: rgb(51, 134, 189);
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+form button {
+  width: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  background-color: rgb(0, 146, 249);
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.buttonList {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 1rem;
+}
+
+.buttonList button {
+  background: none;
+  color: rgb(51, 134, 189);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.buttonOne,
+.buttonTwo {
+  border: none;
+  border-right: 2px solid rgb(231, 227, 227);
+  padding-right: 1rem;
+}
+
+.buttonThree {
+  border: none;
+}
+
+.progress {
+  display: flex;
+  flex-direction: row;
+  margin: auto 5rem;
+  gap: 5rem;
+}
+
+.progressChart {
+  display: flex;
+  flex-direction: row;
+}
+
+.chart {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 0.5rem solid #307bbe;
+  border-left-color: #e8e8e8;
+  transform: rotate(45deg);
+  margin-right: 2rem;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
+}
+
+.percent {
+  font-size: 2.8rem;
+}
+
+.completed {
+  font-size: 1.3rem;
+  color: rgb(137, 137, 137);
+}
+
+.divider {
+  border-right: 2px solid rgb(231, 227, 227);
+}
+
+.currentChap {
+  color: rgb(137, 137, 137);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.chapNum {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapter button {
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: rgb(0, 146, 249);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.addBookSection h2 {
+  color: rgb(136, 136, 136);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgb(231, 227, 227);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
 }
